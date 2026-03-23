@@ -652,7 +652,11 @@
   /* ── Click Tracking ── */
   function trackClick() {
     sessionStorage.setItem('cta_clicked', Date.now());
-    // Add pixel here: e.g. fbq('track', 'Lead');
+    gtag('event', 'button_click', {
+      'event_category': 'CTA',
+      'event_label': 'Get Access Button',
+      'value': 1
+    });
   }
 </script>
 

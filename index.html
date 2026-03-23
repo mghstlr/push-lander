@@ -202,10 +202,6 @@
       #desktop-chat,
       #desktop-cta-top { display: block !important; }
 
-      /* Re-show image panel on desktop (overrides mobile !important) */
-      #image-panel { display: block !important; }
-      #online-badge { display: flex !important; }
-
       /* Adjust reveal animations start immediately on desktop (no scroll needed) */
       #content-panel .reveal {
         opacity: 1 !important;
@@ -217,9 +213,9 @@
     /* Hide desktop-only elements on mobile */
     #desktop-headline,
     #desktop-chat,
-    #desktop-cta-top,
-    #image-panel,
-    #online-badge { display: none !important; }
+    #desktop-cta-top { display: none !important; }
+    #image-panel { display: none; }
+    #online-badge { display: none; }
 
     /* Mobile: gradient text solid pink (gradient+transparent fails over images) */
     #mobile-hero .gradient-text {

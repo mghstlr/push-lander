@@ -144,7 +144,42 @@
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* ══════════════════════════════════════
-       DESKTOP SPLIT LAYOUT
+       MOBILE DEFAULTS (come first so desktop media query can override)
+    ══════════════════════════════════════ */
+
+    /* Hide desktop-only elements on mobile */
+    #desktop-headline,
+    #desktop-chat,
+    #desktop-cta-top { display: none; }
+    #image-panel { display: none; }
+    #online-badge { display: none; }
+
+    /* Mobile: gradient text solid pink (gradient+transparent fails over images) */
+    #mobile-hero .gradient-text {
+      background: none;
+      -webkit-text-fill-color: #ff2d78;
+      color: #ff2d78;
+    }
+
+    /* Mobile: content panel padding */
+    #content-panel {
+      padding: 1.5rem 1.25rem 1rem;
+    }
+
+    /* Mobile: hero full-bleed */
+    #mobile-hero {
+      position: relative;
+      width: 100%;
+      min-height: 92vh;
+      max-height: 100vh;
+      overflow: hidden;
+    }
+    .mobile-hero-overlay {
+      background: linear-gradient(to top, #0d0d0f 0%, #0d0d0fee 35%, rgba(13,13,15,0.55) 65%, transparent 100%);
+    }
+
+    /* ══════════════════════════════════════
+       DESKTOP SPLIT LAYOUT (overrides mobile defaults above)
        Left = sticky image panel
        Right = scrollable content
     ══════════════════════════════════════ */
@@ -153,13 +188,14 @@
       /* Outer wrapper becomes a side-by-side flex */
       #split-layout {
         display: flex;
-        min-height: calc(100vh - 36px); /* minus urgency bar */
+        min-height: calc(100vh - 36px);
       }
 
       /* ── Left: sticky image panel ── */
       #image-panel {
+        display: block;
         position: sticky;
-        top: 36px; /* urgency bar height */
+        top: 36px;
         width: 48%;
         flex-shrink: 0;
         height: calc(100vh - 36px);
@@ -194,51 +230,20 @@
         overflow-y: auto;
       }
 
-      /* Hide the mobile hero section on desktop */
-      #mobile-hero { display: none !important; }
+      /* Hide mobile hero on desktop */
+      #mobile-hero { display: none; }
 
-      /* Show desktop content sections */
+      /* Show desktop-only sections */
       #desktop-headline,
       #desktop-chat,
-      #desktop-cta-top { display: block !important; }
+      #desktop-cta-top { display: block; }
 
-      /* Adjust reveal animations start immediately on desktop (no scroll needed) */
+      /* Reveal animations fire immediately on desktop */
       #content-panel .reveal {
         opacity: 1 !important;
         transform: none !important;
         transition: none !important;
       }
-    }
-
-    /* Hide desktop-only elements on mobile */
-    #desktop-headline,
-    #desktop-chat,
-    #desktop-cta-top { display: none !important; }
-    #image-panel { display: none; }
-    #online-badge { display: none; }
-
-    /* Mobile: gradient text solid pink (gradient+transparent fails over images) */
-    #mobile-hero .gradient-text {
-      background: none;
-      -webkit-text-fill-color: #ff2d78;
-      color: #ff2d78;
-    }
-
-    /* Mobile: content panel padding */
-    #content-panel {
-      padding: 1.5rem 1.25rem 1rem;
-    }
-
-    /* Mobile: hero full-bleed */
-    #mobile-hero {
-      position: relative;
-      width: 100%;
-      min-height: 92vh;
-      max-height: 100vh;
-      overflow: hidden;
-    }
-    .mobile-hero-overlay {
-      background: linear-gradient(to top, #0d0d0f 0%, #0d0d0fee 35%, rgba(13,13,15,0.55) 65%, transparent 100%);
     }
 
     /* ── Benefits icon circle ── */

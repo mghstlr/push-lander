@@ -206,7 +206,15 @@
     #desktop-headline,
     #desktop-chat,
     #desktop-cta-top,
-    #image-panel { display: none; }
+    #image-panel,
+    #online-badge { display: none !important; }
+
+    /* Mobile: gradient text solid pink (gradient+transparent fails over images) */
+    #mobile-hero .gradient-text {
+      background: none;
+      -webkit-text-fill-color: #ff2d78;
+      color: #ff2d78;
+    }
 
     /* Mobile: content panel padding */
     #content-panel {
